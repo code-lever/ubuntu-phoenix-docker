@@ -1,7 +1,5 @@
 FROM ubuntu:16.04
 
-ENV ASDF_ROOT /asdf
-
 # install ubuntu packages
 RUN apt-get update -q
 RUN apt-get install -y \
@@ -20,6 +18,7 @@ RUN apt-get install -y \
 RUN apt-get clean
 
 # install asdf
+ENV ASDF_ROOT /asdf
 RUN git clone https://github.com/asdf-vm/asdf.git ${ASDF_ROOT} --branch v0.4.3
 ENV PATH "${ASDF_ROOT}/bin:${ASDF_ROOT}/shims:$PATH"
 
@@ -49,4 +48,3 @@ RUN mix local.hex --force && \
 ENV NODEJS_VERSION 8.11.1
 RUN asdf install nodejs ${NODEJS_VERSION} && \
     asdf global nodejs ${NODEJS_VERSION}
-
