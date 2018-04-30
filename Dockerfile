@@ -13,7 +13,7 @@ RUN apt-get install -y \
     libwxgtk3.0-dev \
     libgl1-mesa-dev \
     libglu1-mesa-dev \
-    libpng3 \
+    libpng-dev \
     libssh-dev \
     unixodbc-dev
 RUN apt-get clean
