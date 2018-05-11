@@ -38,7 +38,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # install erlang
-ENV ERLANG_VERSION 20.3.5
+ENV ERLANG_VERSION 20.3.6
 RUN asdf install erlang ${ERLANG_VERSION} && \
     asdf global erlang ${ERLANG_VERSION}
 
