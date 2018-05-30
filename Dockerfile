@@ -20,7 +20,7 @@ RUN apt-get update -q \
 # install asdf and its plugins
 ENV ASDF_ROOT /asdf
 ENV PATH "${ASDF_ROOT}/bin:${ASDF_ROOT}/shims:$PATH"
-RUN git clone https://github.com/asdf-vm/asdf.git ${ASDF_ROOT} --branch v0.4.3 \
+RUN git clone https://github.com/asdf-vm/asdf.git ${ASDF_ROOT} --branch v0.5.0 \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang \
  && asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir \
  && asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs \
