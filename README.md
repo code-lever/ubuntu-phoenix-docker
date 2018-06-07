@@ -17,7 +17,7 @@ See: https://hub.docker.com/r/codelever/ubuntu-phoenix-docker
     root@xxxxx:/# erl / iex / node / npm
 1. Tag image
     ```bash
-    docker tag {IMAGE_ID} codelever/ubuntu-phoenix-docker:ubunut-{VERSION}-erlang-{VERSION}-elixir-{VERSION}-node-{VERSION}
+    docker tag {IMAGE_ID} codelever/ubuntu-phoenix-docker:ubuntu-{VERSION}-erlang-{VERSION}-elixir-{VERSION}-node-{VERSION}
 1. Push to repository
     ```bash
     docker push codelever/ubuntu-phoenix-docker
