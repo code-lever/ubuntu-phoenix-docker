@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # install ubuntu packages
 RUN apt-get update -q \
@@ -33,12 +33,12 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # install erlang
-ENV ERLANG_VERSION 21.0.2
+ENV ERLANG_VERSION 21.0.4
 RUN asdf install erlang ${ERLANG_VERSION} \
  && asdf global erlang ${ERLANG_VERSION}
 
 # install elixir
-ENV ELIXIR_VERSION 1.6.6
+ENV ELIXIR_VERSION 1.7.1
 RUN asdf install elixir ${ELIXIR_VERSION} \
  && asdf global elixir ${ELIXIR_VERSION}
 
@@ -47,6 +47,6 @@ RUN mix local.hex --force \
  && mix local.rebar --force
 
 # install nodejs
-ENV NODEJS_VERSION 8.11.3
+ENV NODEJS_VERSION 10.7.0
 RUN asdf install nodejs ${NODEJS_VERSION} \
  && asdf global nodejs ${NODEJS_VERSION}
