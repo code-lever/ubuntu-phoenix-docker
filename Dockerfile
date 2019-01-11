@@ -18,9 +18,11 @@ RUN apt-get update -q \
  && apt-get clean
 
 # install asdf and its plugins
-ENV ASDF_ROOT /asdf
+# ASDF will only correctly install plugins into the home directory as of 0.6.2
+# so .... Just go with it.
+ENV ASDF_ROOT /root/.asdf
 ENV PATH "${ASDF_ROOT}/bin:${ASDF_ROOT}/shims:$PATH"
-RUN git clone https://github.com/asdf-vm/asdf.git ${ASDF_ROOT} --branch v0.5.0 \
+RUN git clone https://github.com/asdf-vm/asdf.git ${ASDF_ROOT} --branch v0.6.2  \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang \
  && asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir \
  && asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs \
@@ -31,14 +33,13 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-
 # install erlang
-ENV ERLANG_VERSION 21.0.4
+ENV ERLANG_VERSION 21.2.2
 RUN asdf install erlang ${ERLANG_VERSION} \
  && asdf global erlang ${ERLANG_VERSION}
 
 # install elixir
-ENV ELIXIR_VERSION 1.7.2
+ENV ELIXIR_VERSION 1.7.4
 RUN asdf install elixir ${ELIXIR_VERSION} \
  && asdf global elixir ${ELIXIR_VERSION}
 
